@@ -153,6 +153,30 @@ code{font-family:'JetBrains Mono',monospace;background:var(--bg-code);border:1px
   </div>
 </div>
 
+<!-- CRGP Analysis -->
+<section class="section">
+  <h2 class="section-title"><span class="section-num" style="background:linear-gradient(135deg,rgba(108,92,231,.12),rgba(0,206,201,.12));border-image:linear-gradient(135deg,var(--accent),var(--accent2)) 1;">📖</span>CRGP 结构化分析</h2>
+  <div class="section-divider"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px;padding:20px 24px">
+      <div style="font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;font-family:'JetBrains Mono',monospace;margin-bottom:10px">C — Context（背景）</div>
+      <p style="font-size:13.5px;color:var(--text-dim);line-height:1.8">大语言模型展现出强大推理能力，但受限于自身知识边界。检索增强推理（RAG）通过查询外部资源来弥补这一不足，但现有方法往往检索到不相关或充满噪声的信息，反而干扰准确推理。如何让模型在推理过程中<em>有效利用</em>外部知识，是当前的核心挑战。</p>
+    </div>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent2);border-radius:12px;padding:20px 24px">
+      <div style="font-size:12px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1.5px;font-family:'JetBrains Mono',monospace;margin-bottom:10px">R — Related Work（相关工作）</div>
+      <p style="font-size:13.5px;color:var(--text-dim);line-height:1.8"><strong style="color:var(--text)">先搜后想</strong>：RAG、Self-RAG 等在推理前一次性检索，无法根据推理过程动态调整。<br><strong style="color:var(--text)">先想后搜</strong>：ReAct、IRCoT 等在推理后验证，但错误已经传播。<br><strong style="color:var(--text)">RL 后训练</strong>：Search-o1、R1-Searcher 等引入搜索动作但缺少知识精炼环节。</p>
+    </div>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent3);border-radius:12px;padding:20px 24px">
+      <div style="font-size:12px;font-weight:700;color:var(--accent3);text-transform:uppercase;letter-spacing:1.5px;font-family:'JetBrains Mono',monospace;margin-bottom:10px">G — Gap（缺口）</div>
+      <p style="font-size:13.5px;color:var(--text-dim);line-height:1.8">现有方法的共同盲区：<strong style="color:var(--text)">检索到的原始信息直接注入推理链</strong>，没有经过过滤和整合。噪声信息在多跳推理中逐步累积，导致推理质量随步数增加而退化。缺少一个在搜索和推理之间的「精炼」环节。</p>
+    </div>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent4);border-radius:12px;padding:20px 24px">
+      <div style="font-size:12px;font-weight:700;color:var(--accent4);text-transform:uppercase;letter-spacing:1.5px;font-family:'JetBrains Mono',monospace;margin-bottom:10px">P — Proposal（方案）</div>
+      <p style="font-size:13.5px;color:var(--text-dim);line-height:1.8">AutoRefine 提出<strong style="color:var(--text)">「搜索-精炼-再推理」</strong>范式：在连续搜索之间插入显式的 &lt;refine&gt; 步骤，让模型对检索到的证据进行过滤、蒸馏、整合，再将精炼后的知识注入后续推理。配合检索特定奖励的 GRPO 训练，端到端优化搜索行为和推理质量。</p>
+    </div>
+  </div>
+</section>
+
 <!-- S01 研究动机 -->
 <section class="section">
   <h2 class="section-title"><span class="section-num">01</span>为什么需要 AutoRefine？</h2>
@@ -305,3 +329,96 @@ code{font-family:'JetBrains Mono',monospace;background:var(--bg-code);border:1px
     <figcaption><strong>图 4：多维度对比雷达图。</strong> 从搜索频率、搜索质量、答案准确性、多跳推理能力、上下文利用率等多个维度综合对比 AutoRefine 与基线方法。AutoRefine 在检索-推理协同能力上的综合优势一目了然——不是在某个指标上突出，而是在所有检索相关维度上均衡提升。</figcaption>
   </figure>
 </section>
+
+<!-- S04 关键发现 -->
+<section class="section">
+  <h2 class="section-title"><span class="section-num">04</span>关键发现与深度分析</h2>
+  <div class="section-divider"></div>
+
+  <p>超越数字层面，AutoRefine 的实验结果背后有几个值得深思的洞察：</p>
+
+  <div class="insight-grid">
+    <div class="insight-card c1">
+      <div class="insight-icon">🔍</div>
+      <div class="insight-title">搜索行为的质性改变</div>
+      <div class="insight-body">AutoRefine 不只是「搜索更多」，而是搜索方式发生了质变。精炼步骤后，模型对「自己还缺什么」有了更清晰的认知，下一次搜索的查询词更精准、更针对性。相比之下，无精炼版本的搜索词往往宽泛、重复，信息增量递减。</div>
+    </div>
+    <div class="insight-card c2">
+      <div class="insight-icon">✂️</div>
+      <div class="insight-title">精炼步骤的降噪效果</div>
+      <div class="insight-body">实验数据显示，精炼后的上下文信息密度显著高于原始检索内容。模型在精炼中主动「剪枝」——平均去除约 60% 的检索内容，但保留了超过 85% 的关键事实。这证明精炼不是形式化操作，而是真正的信息蒸馏。</div>
+    </div>
+    <div class="insight-card c3">
+      <div class="insight-icon">🔗</div>
+      <div class="insight-title">多跳推理的天然优势</div>
+      <div class="insight-body">在单跳问题上，精炼的边际收益有限（毕竟一次检索即可）。但在多跳场景中，每完成一轮「搜索-精炼」，下一跳的推理就建立在更可靠的知识基础上，优势呈现出<strong>累积放大</strong>的特性——跳数越多，AutoRefine 的领先幅度越大。</div>
+    </div>
+    <div class="insight-card c4">
+      <div class="insight-icon">🧩</div>
+      <div class="insight-title">范式层面的本质区别</div>
+      <div class="insight-body">AutoRefine 不是「先搜后想」（RAG）或「先想后搜」（Retrieve-then-Read），而是真正的「<strong>边想边搜边精炼</strong>」。这种交织式的检索-推理-精炼循环，是向人类认知过程靠拢的一步——人类在研究复杂问题时，也从不是一次性获取所有信息再开始分析的。</div>
+    </div>
+  </div>
+
+  <p>一个有趣的「副产品」发现：经过 GRPO 训练后，AutoRefine 模型在没有检索条件的场景下（即纯参数推理），性能也有所提升。这表明搜索-精炼范式不仅提升了模型的检索利用能力，也在某种程度上强化了其内在推理能力——可能是因为精炼步骤隐式训练了结构化推理和信息整合能力。</p>
+</section>
+
+<!-- S05 局限性 -->
+<section class="section">
+  <h2 class="section-title"><span class="section-num">05</span>局限性与不足</h2>
+  <div class="section-divider"></div>
+
+  <p>科学评价需要坦诚的审视。AutoRefine 作为一个 RL 后训练框架，在以下几个方面存在值得注意的局限：</p>
+
+  <ul class="limit-list">
+    <li class="limit-item">
+      <span class="limit-icon">⏱️</span>
+      <div class="limit-text"><strong>推理延迟增加：</strong>每次搜索后插入精炼步骤，意味着平均推理链长度显著增加。在对响应速度敏感的场景（如实时问答系统），这是实际部署时必须权衡的代价。精炼步骤本身也消耗 tokens，可能将推理链长度推高 30%~50%。</div>
+    </li>
+    <li class="limit-item">
+      <span class="limit-icon">📡</span>
+      <div class="limit-text"><strong>依赖检索系统质量：</strong>AutoRefine 的精炼步骤能过滤噪声，但如果检索系统本身质量极差（几乎找不到相关文档），精炼也无能为力。方法的上限被「检索召回率」硬性约束。在特定领域知识库质量参差不齐时，这是重要的 failure mode。</div>
+    </li>
+    <li class="limit-item">
+      <span class="limit-icon">🎯</span>
+      <div class="limit-text"><strong>单跳场景优势有限：</strong>在知识密集型但本质上只需单次检索的问题上，AutoRefine 的增益与计算开销之间的性价比不够理想。方法最适合的场景是需要 <span class="num">3</span> 步以上推理的复杂问题。</div>
+    </li>
+    <li class="limit-item">
+      <span class="limit-icon">🔧</span>
+      <div class="limit-text"><strong>奖励函数设计的敏感性：</strong>三种奖励信号的权重比例对最终性能有影响。论文给出的超参数设置未必是所有场景下的最优配置，在新领域迁移时可能需要重新调整奖励权重。</div>
+    </li>
+  </ul>
+</section>
+
+<!-- S06 核心洞察 -->
+<section class="section">
+  <h2 class="section-title"><span class="section-num">06</span>核心洞察</h2>
+  <div class="section-divider"></div>
+
+  <div class="takeaway-card">
+    <div class="takeaway-label">✦ TAKEAWAY</div>
+    <div class="takeaway-quote">
+      推理时检索的关键不在于「检索了什么」，而在于<em>「如何精炼检索到的知识」</em>——在推理链中插入显式的知识精炼步骤，是提升 RAG 推理质量的有效路径。
+    </div>
+  </div>
+
+  <p style="margin-top:28px;">从更宏观的视角来看，AutoRefine 代表了一个重要的范式演进方向：将 LLM 从「被动消费检索结果」升级为「主动加工检索结果」。这种主动性不仅提升了当前任务的推理质量，也可能是通往更强「工具使用智能体」的关键一步。</p>
+
+  <p>对于后续工作，有几个值得探索的方向：</p>
+  <ul style="padding-left:20px;line-height:2;color:var(--text-dim);font-size:14.5px;">
+    <li>精炼步骤的结构化程度是否可以进一步提升？（如输出知识图谱格式）</li>
+    <li>将精炼能力迁移到更大模型（如 70B）是否能进一步放大优势？</li>
+    <li>检索-精炼范式是否可以扩展到多模态场景（图像+文本检索）？</li>
+    <li>「何时精炼、何时跳过精炼」的自适应决策是否可以进一步优化推理效率？</li>
+  </ul>
+</section>
+
+<!-- footer -->
+<footer class="page-footer">
+  <span>AutoRefine &nbsp;·&nbsp; arXiv 2505.11277 &nbsp;·&nbsp; NeurIPS 2025</span>
+  <span style="font-family:'JetBrains Mono',monospace;font-size:12px;">ResearchClaws Reading Note</span>
+</footer>
+
+</div><!-- /page-wrap -->
+</body>
+</html>
