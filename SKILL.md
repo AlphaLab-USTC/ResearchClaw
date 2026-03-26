@@ -222,23 +222,23 @@ For very long papers (>50 pages), instruct the PDF tool to focus on: Abstract, I
 🔗 https://arxiv.org/abs/{ARXIV_ID}
 🏷️ {TAG_1} · {TAG_2} · {TAG_3}
 
-🔍 **Motivation**
+🔍 **研究动机**
 {MOTIVATION}
 
-⚙️ **Method**
+⚙️ **方法**
 {METHOD_OVERVIEW}
 
-📊 **Results**
+📊 **实验结果**
 {RESULTS_OVERVIEW}
 • {METRIC_1_NAME}: {METRIC_1_VAL}
 • {METRIC_2_NAME}: {METRIC_2_VAL}
 • {METRIC_3_NAME}: {METRIC_3_VAL}
 
-⚠️ **Limitations**
+⚠️ **局限性**
 • {LIMITATION_1}
 • {LIMITATION_2}
 
-✨ **Takeaway**
+✨ **核心洞察**
 {TAKEAWAY}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💾 HTML笔记已保存 → {OUTPUT_PATH}
@@ -271,10 +271,10 @@ where `{SKILL_DIR}` is the directory where this SKILL.md lives (e.g., `~/.opencl
 | `{{TOPIC_TAG}}` | Primary category (e.g., "cs.LG") |
 | `{{TAG_1}}`, `{{TAG_2}}`, `{{TAG_3}}` | Topic tags |
 | `{{TLDR}}` | One-sentence summary |
-| `{{MOTIVATION}}` | Motivation paragraph |
-| `{{METHOD_OVERVIEW}}` | Method high-level description |
+| `{{MOTIVATION}}` | 研究动机段落 |
+| `{{METHOD_OVERVIEW}}` | 方法高层描述 |
 | `{{METHOD_STEP_1}}`, `{{METHOD_STEP_2}}`, `{{METHOD_STEP_3}}` | Three method steps |
-| `{{RESULTS_OVERVIEW}}` | Results summary |
+| `{{RESULTS_OVERVIEW}}` | 实验结果总结 |
 | `{{METRIC_1_NAME}}`, `{{METRIC_1_VAL}}` | First metric name + value |
 | `{{METRIC_2_NAME}}`, `{{METRIC_2_VAL}}` | Second metric name + value |
 | `{{METRIC_3_NAME}}`, `{{METRIC_3_VAL}}` | Third metric name + value |

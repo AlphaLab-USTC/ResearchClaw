@@ -391,7 +391,7 @@ body {
 
   <!-- Hero header -->
   <header class="paper-hero">
-    <div class="paper-type-badge">📄 Paper Reading Note</div>
+    <div class="paper-type-badge">📄 论文阅读笔记</div>
     <h1 class="paper-title">AutoRefine: Search and Refine During Think</h1>
     <p class="paper-authors">
       <strong>Yaorui Shi</strong> et al.
@@ -413,7 +413,7 @@ body {
   <!-- TL;DR -->
   <div class="tldr-banner">
     <div class="tldr-label">TL;DR</div>
-    <div class="tldr-text">AutoRefine integrates retrieval into the reasoning chain itself, enabling LLMs to search and verify intermediate conclusions during thinking — resulting in more faithful and accurate reasoning.</div>
+    <div class="tldr-text">AutoRefine 将检索直接融入推理链，使大语言模型在思考过程中就能搜索和验证中间结论，从而实现更忠实、更准确的推理。</div>
   </div>
 
   <!-- Content grid: Motivation + Method -->
@@ -422,10 +422,10 @@ body {
     <div class="section-card">
       <div class="section-header">
         <div class="section-icon icon-motivation">🔍</div>
-        <span class="section-title title-motivation">Motivation</span>
+        <span class="section-title title-motivation">研究动机</span>
       </div>
       <div class="section-body">
-        <p>Large Language Models often commit to incorrect reasoning paths without the ability to self-correct mid-chain. Existing retrieval-augmented approaches only retrieve before or after reasoning, missing the opportunity to refine intermediate steps where errors actually occur.</p>
+        <p>大语言模型在推理时常常陷入错误路径，却无法在推理链中途自我纠正。现有的检索增强方法仅在推理前或推理后进行检索，错失了在错误实际发生的中间步骤进行修正的机会。</p>
       </div>
     </div>
 
@@ -433,22 +433,22 @@ body {
     <div class="section-card">
       <div class="section-header">
         <div class="section-icon icon-method">⚙️</div>
-        <span class="section-title title-method">Method</span>
+        <span class="section-title title-method">方法</span>
       </div>
       <div class="section-body">
-        <p>AutoRefine introduces a Retrieve-and-Refine mechanism that triggers targeted searches at critical points within the reasoning chain, verifying and correcting intermediate conclusions before they propagate.</p>
+        <p>AutoRefine 提出了「检索-精炼」机制，在推理链的关键节点触发定向搜索，在中间结论传播之前对其进行验证和纠正。</p>
         <div class="method-steps">
           <div class="method-step">
             <div class="step-num">1</div>
-            <div class="step-text">Uncertainty Detection — monitors the reasoning chain for low-confidence intermediate conclusions using a learned confidence estimator</div>
+            <div class="step-text">不确定性检测 — 通过学习到的置信度估计器，监控推理链中低置信度的中间结论</div>
           </div>
           <div class="method-step">
             <div class="step-num">2</div>
-            <div class="step-text">Targeted Retrieval — when uncertainty is detected, triggers focused searches for evidence supporting or contradicting the current reasoning step</div>
+            <div class="step-text">定向检索 — 当检测到不确定性时，触发聚焦搜索，寻找支持或反驳当前推理步骤的证据</div>
           </div>
           <div class="method-step">
             <div class="step-num">3</div>
-            <div class="step-text">Step-wise Refinement — integrates retrieved evidence to correct or confirm the intermediate conclusion, then continues the reasoning chain from the refined state</div>
+            <div class="step-text">逐步精炼 — 整合检索到的证据来纠正或确认中间结论，然后从修正后的状态继续推理链</div>
           </div>
         </div>
       </div>
@@ -461,10 +461,10 @@ body {
     <div class="section-card">
       <div class="section-header">
         <div class="section-icon icon-results">📊</div>
-        <span class="section-title title-results">Results</span>
+        <span class="section-title title-results">实验结果</span>
       </div>
       <div class="section-body">
-        <p>AutoRefine consistently outperforms both vanilla reasoning and retrieve-then-reason baselines across mathematical, multi-hop, and commonsense reasoning benchmarks.</p>
+        <p>AutoRefine 在数学推理、多跳推理和常识推理基准上，均持续超越原始推理和「先检索后推理」基线方法。</p>
         <div class="result-numbers">
           <div class="result-num">
             <span class="num-val">87.3%</span>
@@ -486,21 +486,21 @@ body {
     <div class="section-card">
       <div class="section-header">
         <div class="section-icon icon-limitations">⚠️</div>
-        <span class="section-title title-limitations">Limitations</span>
+        <span class="section-title title-limitations">局限性</span>
       </div>
       <div class="section-body">
         <div class="limitation-list">
           <div class="limitation-item">
             <div class="lim-dot"></div>
-            <div class="lim-text">Retrieval latency increases end-to-end inference time by ~40%, which may be prohibitive for real-time applications</div>
+            <div class="lim-text">检索延迟使端到端推理时间增加约 40%，可能不适用于实时应用场景</div>
           </div>
           <div class="limitation-item">
             <div class="lim-dot"></div>
-            <div class="lim-text">The confidence estimator requires task-specific calibration data, limiting zero-shot deployment</div>
+            <div class="lim-text">置信度估计器需要特定任务的校准数据，限制了零样本部署能力</div>
           </div>
           <div class="limitation-item">
             <div class="lim-dot"></div>
-            <div class="lim-text">Performance gains diminish on tasks requiring creative or divergent reasoning where retrieval evidence is sparse</div>
+            <div class="lim-text">在需要创造性或发散性推理的任务上，由于检索证据稀疏，性能提升有所减弱</div>
           </div>
         </div>
       </div>
@@ -511,9 +511,9 @@ body {
   <div class="takeaway-card">
     <div class="section-header" style="justify-content:center; border:none; padding:0; margin-bottom:16px;">
       <div class="section-icon icon-takeaway">✨</div>
-      <span class="section-title title-takeaway">Core Takeaway</span>
+      <span class="section-title title-takeaway">核心洞察</span>
     </div>
-    <div class="takeaway-text">Retrieving during reasoning is fundamentally more effective than retrieving before reasoning — mid-chain verification catches errors where they actually occur.</div>
+    <div class="takeaway-text">在推理过程中检索从根本上比在推理前检索更有效——链中验证能在错误实际发生的地方捕获它们。</div>
     <div class="tags-row" style="justify-content:center;">
       <span class="tag tag-method">LLM Reasoning</span>
       <span class="tag tag-topic">Retrieval-Augmented</span>
@@ -524,7 +524,7 @@ body {
 
   <!-- Footer -->
   <footer class="note-footer">
-    <span>Generated by <span class="footer-brand">ResearchClaws</span> · <a href="https://github.com/syr-cn/ResearchClaws" style="color:var(--text-muted); text-decoration:none;">github.com/syr-cn/ResearchClaws</a></span>
+    <span>由 <span class="footer-brand">ResearchClaws</span> · <a href="https://github.com/syr-cn/ResearchClaws" style="color:var(--text-muted); text-decoration:none;">github.com/syr-cn/ResearchClaws</a></span>
     <span>2026-03-26 · arXiv:2503.19823</span>
   </footer>
 
