@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResearchClaws | Showcase</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0f1117;
+            --bg-card: #1a1d27;
+            --accent: #6c5ce7;
+            --accent2: #00cec9;
+            --text: #e2e8f0;
+            --text-dim: #8892a8;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+        }
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 48px;
+        }
+        .cases {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 900px;
+        }
+        .case-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            width: 280px;
+            text-decoration: none;
+            color: var(--text);
+            border: 1px solid rgba(108,92,231,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .case-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(108,92,231,0.2);
+        }
+        .case-card .num {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .case-card h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .case-card p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .case-card .tag {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .tag-ready { background: rgba(0,206,201,0.15); color: var(--accent2); }
+        .tag-wip { background: rgba(253,121,168,0.15); color: #fd79a8; }
+        footer {
+            margin-top: 64px;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>🐾 ResearchClaws</h1>
+    <p class="subtitle">AI Research Assistant — Showcase Cases</p>
+    <div class="cases">
+        <a href="showcase/case1-daily-signal-brief.html" class="case-card">
+            <div class="num">01</div>
+            <h2>每日全球信号简报</h2>
+            <p>Cron 触发 → 多源聚合 → 7 步 pipeline → 高信噪比行动简报，支持自我迭代。</p>
+            <span class="tag tag-ready">✅ Ready</span>
+        </a>
+        <a href="#" class="case-card" style="opacity:0.5; pointer-events:none;">
+            <div class="num">02</div>
+            <h2>一晚上从零到研究提案</h2>
+            <p>Paper discovery → Deep reading → Research proposal，全自动研究工作流。</p>
+            <span class="tag tag-wip">🚧 Coming Soon</span>
+        </a>
+        <a href="#" class="case-card" style="opacity:0.5; pointer-events:none;">
+            <div class="num">03</div>
+            <h2>Case 3</h2>
+            <p>更多 showcase 即将到来…</p>
+            <span class="tag tag-wip">🚧 Coming Soon</span>
+        </a>
+    </div>
+    <footer>
+        <p>Built with 🐱 by <a href="https://github.com/syr-cn">@syr-cn</a> &amp; Octivia</p>
+    </footer>
+</body>
+</html>
