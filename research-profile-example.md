@@ -81,7 +81,7 @@ scout_days_back: 3           # How many days back to search (default: 3)
 scout_top_n: 8               # How many papers to show in daily scout (default: 8)
 scout_language: "zh"         # "zh" (Chinese summaries) or "en"
 
-## 📊 Score Thresholds (inherited from PaperClaw conventions)
+## 📊 Score Thresholds
 score_thresholds:
   high: 7        # >= 7 → definitely recommend
   edge_low: 4    # 4-6 → borderline, show with lower priority

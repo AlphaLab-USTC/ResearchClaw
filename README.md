@@ -330,27 +330,10 @@ whitelist_authors:
 
 ---
 
-## 💬 与同类工具比较
-
-> 灵感来自 **PaperClaw** 和 **ARIS**（Auto-claude-code-research-in-sleep），但更轻量、更集成。
-
-| 特性 | ResearchClaws | PaperClaw | ARIS |
-|---|---|---|---|
-| 零 API Key | ✅ | 需要 OpenAlex Key | 需要多个 Key |
-| 深度阅读笔记 | ✅ HTML | ✅ Markdown | ✅ Markdown |
-| 论文列表管理 | ✅ HTML Dashboard | ❌ | ❌ |
-| 研究画像个性化 | ✅ 自动学习 | 部分 | ❌ |
-| 灵感生成 | ✅ | ❌ | 部分 |
-| 论文写作辅助 | ✅ 含 Rebuttal | ❌ | ✅ 代码执行 |
-| 安装方式 | 1句话 | 手动配置 | 手动配置 |
-
----
-
 ## 🤝 Credits
 
 - 🦞 Built with [OpenClaw](https://openclaw.ai) — AI assistant platform
 - 📄 Paper data from [arXiv](https://arxiv.org) (free open-access API)
-- 💡 Inspired by [PaperClaw](https://clawhub.ai) and [ARIS](https://github.com/just-a-mango/aris) projects
 - 🧠 Created by [@syr-cn](https://github.com/syr-cn) (Yaorui Shi, USTC)
 
 ---
