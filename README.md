@@ -13,9 +13,9 @@
 
 <br>
 
-**每天 5 分钟，掌握最新 AI 进展。不需要 API Key，开箱即用。**
+**每天 5 分钟，掌握最新 AI 进展。不需要第三方 API Key，开箱即用。**
 
-*Stay on top of AI research in 5 minutes a day. No API key needed. Works immediately.*
+*Stay on top of AI research in 5 minutes a day. No third-party API key needed. Works immediately.*
 
 <br>
 
