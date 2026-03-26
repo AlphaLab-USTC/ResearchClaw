@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Research Taste Profile | ResearchClaws</title>
+<title>Research Taste Profile | ResearchClaw</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   ResearchClaws Research Profile Template v2.0
+   ResearchClaw Research Profile Template v2.0
    Dark theme · Demo page · Visual keyword cloud + stats
    ============================================================ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -268,14 +268,31 @@ body {
   .main-grid { grid-template-columns: 1fr; }
   .profile-hero { flex-direction: column; }
 }
+
+/* ── Light mode ─────────────────────────────────── */
+body.light {
+  --bg: #ffffff;
+  --bg-card: #f8f9fa;
+  --bg-code: #f1f3f5;
+  --text: #1a1a2e;
+  --text-dim: #4a5568;
+  --text-muted: #718096;
+  --border: rgba(0,0,0,0.08);
+  --border-acc: rgba(108,92,231,0.2);
+  --glow: rgba(108,92,231,0.06);
+}
+body { transition: background .3s, color .3s; }
 </style>
 </head>
 <body>
+<!-- Theme toggle -->
+<button id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode" style="position:fixed;top:16px;right:16px;z-index:9999;width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--bg-card);color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.2);">🌙</button>
+
 <div class="page-wrap">
 
   <!-- Top bar -->
   <nav class="topbar">
-    <span class="logo">🦞 ResearchClaws</span>
+    <span class="logo">🦞 ResearchClaw</span>
     <div class="profile-badge">🧠 Research Taste Profile</div>
   </nav>
 
@@ -432,10 +449,26 @@ body {
 
   <!-- Footer -->
   <footer class="profile-footer">
-    <span>Research profile managed by <span class="footer-brand">ResearchClaws</span></span>
+    <span>Research profile managed by <span class="footer-brand">ResearchClaw</span></span>
     <span>Last updated: {{LAST_UPDATED}} · {{KEYWORD_COUNT}} keywords · {{SEED_COUNT}} seed papers</span>
   </footer>
 
 </div>
+<script>
+(function(){
+  var saved = localStorage.getItem('theme');
+  if(saved === 'light') {
+    document.body.classList.add('light');
+    var btn = document.getElementById('theme-toggle');
+    if(btn) btn.textContent = '☀️';
+  }
+})();
+function toggleTheme(){
+  var isLight = document.body.classList.toggle('light');
+  var btn = document.getElementById('theme-toggle');
+  btn.textContent = isLight ? '☀️' : '🌙';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+}
+</script>
 </body>
 </html>

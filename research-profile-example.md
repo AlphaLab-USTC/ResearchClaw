@@ -1,4 +1,4 @@
-# ResearchClaws — Research Profile
+# ResearchClaw — Research Profile
 # Copy this file to ~/.openclaw/workspace/research-profile.md and customize it.
 # The agent reads this file before running any capability.
 

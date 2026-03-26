@@ -1,11 +1,11 @@
-# Install ResearchClaws
+# Install ResearchClaw
 
 ## One-line Install
 
 Send this message to your OpenClaw agent:
 
 ```
-帮我安装 ResearchClaws：https://raw.githubusercontent.com/syr-cn/ResearchClaws/main/docs/install.md
+帮我安装 ResearchClaw：https://raw.githubusercontent.com/syr-cn/ResearchClaws/main/docs/install.md
 ```
 
 That's it. The agent will:
@@ -21,10 +21,10 @@ If you want full control:
 
 ```bash
 # 1. Clone the skill
-git clone https://github.com/syr-cn/ResearchClaws ~/.openclaw/skills/research-claws
+git clone https://github.com/syr-cn/ResearchClaws ~/.openclaw/skills/research-claw
 
 # 2. Register with OpenClaw
-# Tell your agent: "register skill at ~/.openclaw/skills/research-claws"
+# Tell your agent: "register skill at ~/.openclaw/skills/research-claw"
 ```
 
 ---
@@ -35,11 +35,11 @@ After installing, set up your research taste profile:
 
 ```bash
 # Copy the example profile
-cp ~/.openclaw/skills/research-claws/research-profile-example.md \
-   ~/.openclaw/workspace/research-claws-config.md
+cp ~/.openclaw/skills/research-claw/research-profile-example.md \
+   ~/.openclaw/workspace/research-claw-config.md
 ```
 
-Edit `~/.openclaw/workspace/research-claws-config.md` with:
+Edit `~/.openclaw/workspace/research-claw-config.md` with:
 - Your research direction description
 - Seed papers (arXiv IDs you consider gold standards)
 - Keywords for daily discovery
@@ -55,7 +55,7 @@ Or just tell your agent:
 ## File Structure
 
 ```
-ResearchClaws/
+ResearchClaw/
 ├── SKILL.md                        # Agent instructions (all 6 capabilities)
 ├── README.md                       # Project overview
 ├── research-profile-example.md     # Profile config template
@@ -86,7 +86,7 @@ ResearchClaws/
 
 ## Quick Start After Install
 
-ResearchClaws v2.0 has **6 core capabilities**:
+ResearchClaw v2.0 has **6 core capabilities**:
 
 | # | Say this | Capability | What happens |
 |---|----------|------------|--------------|
@@ -109,7 +109,7 @@ ResearchClaws v2.0 has **6 core capabilities**:
 
 All generated HTML files are saved to:
 ```
-~/.openclaw/workspace/research-claws-output/
+~/.openclaw/workspace/research-claw-output/
 ```
 
 | File | Description |
@@ -123,7 +123,7 @@ All generated HTML files are saved to:
 ## Uninstall
 
 ```
-Tell your agent: "卸载 ResearchClaws skill"
+Tell your agent: "卸载 ResearchClaw skill"
 ```
 
-Or manually delete `~/.openclaw/skills/research-claws/`.
+Or manually delete `~/.openclaw/skills/research-claw/`.

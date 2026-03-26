@@ -1,10 +1,10 @@
 ---
-name: research-claws
+name: research-claw
 description: >
   Complete AI research assistant with 6 core capabilities: paper discovery, deep reading notes,
   reading list management, research taste learning, idea generation, and paper writing.
   Trigger words: 论文推荐, paper recommendation, arXiv, 读论文, paper notes, DNL,
-  推荐今日论文, 每日论文, 帮我读一下, paper scout, 论文速读, 帮我安装 ResearchClaws,
+  推荐今日论文, 每日论文, 帮我读一下, paper scout, 论文速读, 帮我安装 ResearchClaw,
   research claws, researchclaws, 加入待读, 我的论文列表, reading list, 标记已读,
   更新我的研究画像, 我的研究画像, research profile, 给我一些研究灵感, idea generator,
   跨论文分析, 帮我写论文, paper writing, 论文大纲, 写引言, rebuttal.
@@ -15,9 +15,9 @@ metadata:
     author: syr-cn
 ---
 
-# ResearchClaws v2.0 — Agent Usage Guide
+# ResearchClaw v2.0 — Agent Usage Guide
 
-ResearchClaws gives you **6 core capabilities** as a complete AI research companion.
+ResearchClaw gives you **6 core capabilities** as a complete AI research companion.
 Read this guide fully before acting; each section has precise step-by-step instructions.
 
 ---
@@ -39,7 +39,7 @@ Read this guide fully before acting; each section has precise step-by-step instr
 
 Before running **any** capability, load the user's research profile.
 
-**Location:** `~/.openclaw/workspace/research-claws-config.md`
+**Location:** `~/.openclaw/workspace/research-claw-config.md`
 
 If this file does not exist, use these **defaults** silently and mention at the end:
 > 💡 想定制推荐兴趣？试试说「更新我的研究画像」
@@ -153,7 +153,7 @@ If the user reacts to a recommended paper with:
 - `"不错"` / `"这个好"` / `"有意思"` / `"精读"` → extract keywords from that paper's title/abstract, add to `learned_preferences.accept` in config
 - `"skip"` / `"没意思"` / `"不相关"` → extract keywords, add to `learned_preferences.reject`
 
-Update `~/.openclaw/workspace/research-claws-config.md` immediately.
+Update `~/.openclaw/workspace/research-claw-config.md` immediately.
 
 ### Cron setup
 
@@ -256,13 +256,13 @@ For very long papers (>50 pages), instruct the PDF tool to focus on: Abstract, I
 
 ### Step 5 — Generate HTML note from template
 
-**Output directory (default):** `~/.openclaw/workspace/research-claws-output/`
+**Output directory (default):** `~/.openclaw/workspace/research-claw-output/`
 Create this directory if it doesn't exist.
 
 **Filename:** `{ARXIV_ID}.html` (e.g., `2503.19823.html`)
 
 **Template location:** `{SKILL_DIR}/templates/paper-note.html`
-where `{SKILL_DIR}` is the directory where this SKILL.md lives (e.g., `~/.openclaw/skills/research-claws/`).
+where `{SKILL_DIR}` is the directory where this SKILL.md lives (e.g., `~/.openclaw/skills/research-claw/`).
 
 **Procedure:**
 1. Use `read` to load the template: `{SKILL_DIR}/templates/paper-note.html`
@@ -311,7 +311,7 @@ where `{SKILL_DIR}` is the directory where this SKILL.md lives (e.g., `~/.opencl
 
 Maintain a JSON or YAML data file at:
 ```
-~/.openclaw/workspace/research-claws-reading-list.json
+~/.openclaw/workspace/research-claw-reading-list.json
 ```
 
 Schema (JSON):
@@ -327,7 +327,7 @@ Schema (JSON):
       "status": "to_read",
       "score": 4.5,
       "tags": ["LLM Reasoning", "RAG"],
-      "note_link": "research-claws-output/2503.19823.html"
+      "note_link": "research-claw-output/2503.19823.html"
     }
   ]
 }
@@ -378,8 +378,8 @@ Status values: `"to_read"` · `"reading"` · `"done"`
 
    **Note:** The template has slots for a fixed number of papers per section. If the list has more papers than template slots, include all papers by duplicating the entry HTML pattern — copy the last entry block and append it before the section's closing tag.
 
-6. Save filled HTML to `~/.openclaw/workspace/research-claws-output/reading-list.html`
-7. Report: `📋 阅读列表已更新 → ~/.openclaw/workspace/research-claws-output/reading-list.html`
+6. Save filled HTML to `~/.openclaw/workspace/research-claw-output/reading-list.html`
+7. Report: `📋 阅读列表已更新 → ~/.openclaw/workspace/research-claw-output/reading-list.html`
 
 ---
 
@@ -391,10 +391,10 @@ Status values: `"to_read"` · `"reading"` · `"done"`
 
 ### Config file format
 
-**Location:** `~/.openclaw/workspace/research-claws-config.md`
+**Location:** `~/.openclaw/workspace/research-claw-config.md`
 
 ```yaml
-# ResearchClaws Config
+# ResearchClaw Config
 # Auto-maintained by the agent. You can also edit manually.
 
 research_direction: >
@@ -494,8 +494,8 @@ topic_stats:
 | `{{PREF_ACCEPT_1}}`, `{{PREF_ACCEPT_2}}`, `{{PREF_ACCEPT_3}}` | Accept preference strings |
 | `{{PREF_REJECT_1}}`, `{{PREF_REJECT_2}}` | Reject preference strings |
 
-3. Save to `~/.openclaw/workspace/research-claws-output/research-profile.html`
-4. Report: `🧠 研究画像已更新 → ~/.openclaw/workspace/research-claws-output/research-profile.html`
+3. Save to `~/.openclaw/workspace/research-claw-output/research-profile.html`
+4. Report: `🧠 研究画像已更新 → ~/.openclaw/workspace/research-claw-output/research-profile.html`
 
 ---
 
@@ -507,7 +507,7 @@ topic_stats:
 
 ### Step 1 — Gather paper corpus
 
-1. Load `~/.openclaw/workspace/research-claws-reading-list.json`
+1. Load `~/.openclaw/workspace/research-claw-reading-list.json`
 2. Filter papers with `status: "done"` or `status: "reading"` (i.e., papers the user has actually engaged with)
 3. For each paper, load its HTML note from the `note_link` field (if available) or re-fetch abstract from arXiv
 4. Extract: title, method summary, results, takeaway, tags for each paper
@@ -776,8 +776,8 @@ This section applies to Capabilities 2, 3, and 4.
 ### Finding the skill directory
 
 The skill directory (where templates live) is the folder containing this SKILL.md file.
-Typical path: `~/.openclaw/skills/research-claws/`
-Templates are at: `~/.openclaw/skills/research-claws/templates/`
+Typical path: `~/.openclaw/skills/research-claw/`
+Templates are at: `~/.openclaw/skills/research-claw/templates/`
 
 If you cannot determine the skill directory, use `exec` to find it:
 ```bash
@@ -786,11 +786,11 @@ find ~/.openclaw/skills -name "paper-note.html" 2>/dev/null | head -1
 
 ### Output directory
 
-Default: `~/.openclaw/workspace/research-claws-output/`
+Default: `~/.openclaw/workspace/research-claw-output/`
 
 Create if needed:
 ```bash
-mkdir -p ~/.openclaw/workspace/research-claws-output
+mkdir -p ~/.openclaw/workspace/research-claw-output
 ```
 
 The user can override the output directory by setting `output_dir` in their config.
@@ -835,7 +835,7 @@ https://raw.githubusercontent.com/syr-cn/ResearchClaws/main/docs/install.md
 
 To install, tell your OpenClaw agent:
 ```
-帮我安装 ResearchClaws：https://raw.githubusercontent.com/syr-cn/ResearchClaws/main/docs/install.md
+帮我安装 ResearchClaw：https://raw.githubusercontent.com/syr-cn/ResearchClaws/main/docs/install.md
 ```
 
 ---

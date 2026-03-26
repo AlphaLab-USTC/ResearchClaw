@@ -1,9 +1,9 @@
-# ResearchClaws 配置指南
+# ResearchClaw 配置指南
 
 ## 配置文件位置
 
 ```
-~/.openclaw/workspace/research-claws-config.md
+~/.openclaw/workspace/research-claw-config.md
 ```
 
 安装时自动创建。你可以随时编辑它，代理每次运行时都会读取最新配置。
@@ -13,7 +13,7 @@
 ## 完整配置说明
 
 ```markdown
-# ResearchClaws 用户配置
+# ResearchClaw 用户配置
 
 ## 研究兴趣
 INTERESTS:
@@ -85,10 +85,10 @@ INTERESTS:
 不想手动编辑文件？直接告诉代理：
 
 ```
-我主要研究强化学习和多模态，帮我更新一下 ResearchClaws 的配置
+我主要研究强化学习和多模态，帮我更新一下 ResearchClaw 的配置
 ```
 
-代理会自动更新 `research-claws-config.md`。
+代理会自动更新 `research-claw-config.md`。
 
 ---
 

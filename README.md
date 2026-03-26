@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🦞 ResearchClaws
+# 🦞 ResearchClaw
 
 **你的 AI 全能论文助手 | Your Complete AI Research Companion**
 
@@ -138,7 +138,7 @@
 把这句话发给你的 OpenClaw 代理：
 
 ```
-帮我安装 ResearchClaws：https://raw.githubusercontent.com/syr-cn/ResearchClaws/main/docs/install.md
+帮我安装 ResearchClaw：https://raw.githubusercontent.com/syr-cn/ResearchClaws/main/docs/install.md
 ```
 
 > **就这一句话。** 代理会自动下载、注册技能，无需任何手动操作。
@@ -269,7 +269,7 @@ rebuttal
 更新我的研究画像：我主要研究强化学习和多模态 agent，关注 RLVR 方向
 ```
 
-或手动编辑 `~/.openclaw/workspace/research-claws-config.md`：
+或手动编辑 `~/.openclaw/workspace/research-claw-config.md`：
 
 ```yaml
 research_direction: "PhD in LLM reasoning and agentic memory systems"
@@ -303,7 +303,7 @@ whitelist_authors:
 ```
 用户: 推荐今日论文
   ↓
-读取 research-claws-config.md（研究画像）
+读取 research-claw-config.md（研究画像）
   ↓
 调用 arXiv 公开 API（免费，无需 Key）
   ↓
@@ -342,7 +342,7 @@ whitelist_authors:
 
 **Install** (one line — send to your OpenClaw agent):
 ```
-帮我安装 ResearchClaws：https://raw.githubusercontent.com/syr-cn/ResearchClaws/main/docs/install.md
+帮我安装 ResearchClaw：https://raw.githubusercontent.com/syr-cn/ResearchClaws/main/docs/install.md
 ```
 
 **6 capabilities at a glance:**
