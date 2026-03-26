@@ -91,6 +91,24 @@
         }
         .tag-ready { background: rgba(0,206,201,0.15); color: var(--accent2); }
         .tag-wip { background: rgba(253,121,168,0.15); color: #fd79a8; }
+        .tag-demo { background: rgba(162,155,254,0.15); color: #a29bfe; }
+        .section-label {
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 48px 0 8px;
+            font-family: 'JetBrains Mono', -apple-system, monospace;
+        }
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(108,92,231,0.3), transparent);
+            margin-bottom: 32px;
+        }
         footer {
             margin-top: 64px;
             color: var(--text-dim);
@@ -127,6 +145,29 @@
             <h2>多 Agent 协同代码实现</h2>
             <p>ClawTeam 多 Agent 并行编码：任务拆分 → 3 Workers 并行 → 代码审查 → PR 合并。</p>
             <span class="tag tag-ready">✅ Ready</span>
+        </a>
+    </div>
+
+    <div class="section-label">🎨 Output Previews</div>
+    <div class="section-divider"></div>
+    <div class="cases">
+        <a href="showcase/demo-paper-note.html" class="case-card">
+            <div class="num" style="font-size:2rem;">📄</div>
+            <h2>论文阅读笔记 Demo</h2>
+            <p>AutoRefine (NeurIPS 2025) 完整阅读笔记：动机、方法、实验结果、局限性、核心洞察。</p>
+            <span class="tag tag-demo">🎨 Live Demo</span>
+        </a>
+        <a href="showcase/demo-reading-list.html" class="case-card">
+            <div class="num" style="font-size:2rem;">📚</div>
+            <h2>阅读列表看板 Demo</h2>
+            <p>Kanban 式阅读进度管理：To Read / Reading / Done 三列，含统计数据与分类标签。</p>
+            <span class="tag tag-demo">🎨 Live Demo</span>
+        </a>
+        <a href="showcase/demo-research-profile.html" class="case-card">
+            <div class="num" style="font-size:2rem;">🧠</div>
+            <h2>研究画像 Demo</h2>
+            <p>研究者兴趣关键词云、种子论文、关注作者、主题分布与偏好过滤规则。</p>
+            <span class="tag tag-demo">🎨 Live Demo</span>
         </a>
     </div>
     <footer>
